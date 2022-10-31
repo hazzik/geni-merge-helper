@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Geni Merge Helper",
+  "version": "0.0.0",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://geni.com/search*",
+        "https://www.geni.com/search*",
+        "https://www.geni.com/surnames/people/*",
+        "https://www.geni.com/list/index*"
+      ],
+      "js": [
+        "main.js"
+      ]
+    }
+  ]
+}

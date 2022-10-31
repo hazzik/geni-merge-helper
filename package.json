@@ -1,0 +1,27 @@
+{
+  "name": "geni-merge-helper",
+  "version": "0.0.1",
+  "description": "A Geni.com merge helper",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "webpack",
+    "pack": "web-ext build --source-dir ./dist/",
+    "publish:amo": "web-ext-submit --source-dir ./dist/ --api-key=$AMO_API_KEY --api-secret=$AMO_API_SECRET --id=$AMO_EXTENSION_ID",
+    "publish:cws": "chrome-webstore-upload upload --source ./dist/ --extension-id $CWS_EXTENSION_ID --client-id $CWS_CLIENT_ID --refresh-token $CWS_REFRESH_TOKEN && chrome-webstore-upload publish --extension-id $CWS_EXTENSION_ID --client-id $CWS_CLIENT_ID --refresh-token $CWS_REFRESH_TOKEN",
+    "start:firefox": "web-ext run --source-dir ./dist/",
+    "generate-update-manifest": "node bin/generate-update-manifest.js $AMO_EXTENSION_ID",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Unlicense",
+  "devDependencies": {
+    "chrome-webstore-upload-cli": "^2.0.1",
+    "copy-webpack-plugin": "^11.0.0",
+    "web-ext": "^7.0.0",
+    "web-ext-submit": "^7.0.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
+}

@@ -14,5 +14,10 @@
         "main.js"
       ]
     }
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "update_url": "https://github.com/hazzik/geni-merge-helper/releases/latest/download/update.json"
+    }
+  }
 }

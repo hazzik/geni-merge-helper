@@ -7,9 +7,8 @@
   "scripts": {
     "build": "webpack",
     "pack": "web-ext build --source-dir ./dist/",
-    "publish:amo": "web-ext-submit --source-dir ./dist/ --api-key=$AMO_API_KEY --api-secret=$AMO_API_SECRET --id=$AMO_EXTENSION_ID",
-    "publish:cws": "chrome-webstore-upload upload --source ./dist/ --extension-id $CWS_EXTENSION_ID --client-id $CWS_CLIENT_ID --refresh-token $CWS_REFRESH_TOKEN && chrome-webstore-upload publish --extension-id $CWS_EXTENSION_ID --client-id $CWS_CLIENT_ID --refresh-token $CWS_REFRESH_TOKEN",
     "start:firefox": "web-ext run --source-dir ./dist/",
+    "sign": "web-ext sign --source-dir ./dist/ --api-key $AMO_API_KEY --api-secret $AMO_API_SECRET --id $AMO_EXTENSION_ID",
     "generate-update-manifest": "node bin/generate-update-manifest.js $AMO_EXTENSION_ID",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

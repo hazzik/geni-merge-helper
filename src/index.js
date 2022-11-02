@@ -8,12 +8,17 @@ document.querySelectorAll('tr.list_row:not([data-profile-id])').forEach(tr => {
   td.innerHTML = `<p class="strong mbn"><a href="https://www.geni.com/profile/index/${profile_id}">${td.innerHTML}</a></p>`;
 });
 
+const table = document.querySelector('tr[data-profile-id]')?.closest('table');
+if (table) {
+  const cell = table.querySelector('tr').insertCell(1);
+  cell.outerHTML = '<th />';
+}
+
 document.querySelectorAll('tr[data-profile-id]').forEach(tr => {
   const id = tr.getAttribute('data-profile-id');
+  tr.insertCell(1).appendChild(createMergeCheckbox(id));
   const span = tr.querySelector('.name_cell .strong, strong');
-  var cb = createMergeCheckbox(id);
-  span.insertBefore(cb, span.firstChild);
-  span.querySelectorAll('a[onclick]').forEach(a => {
+  span?.querySelectorAll('a[onclick]').forEach(a => {
     a.removeAttribute('onclick');
     a.setAttribute('href', `https://www.geni.com/profile/index/${id}`);
   })

@@ -1,4 +1,4 @@
-const results = document.querySelector('.results, #surname_people_list');
+const results = document.querySelector('.results, .merge-center-wrap, #surname_people_list');
 const profilesToMerge = [];
 
 document.querySelectorAll('tr.list_row:not([data-profile-id])').forEach(tr => {

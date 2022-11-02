@@ -8,7 +8,7 @@
         "https://geni.com/search*",
         "https://www.geni.com/search*",
         "https://www.geni.com/surnames/people/*",
-        "https://www.geni.com/list/index*"
+        "https://www.geni.com/list/*"
       ],
       "js": [
         "main.js"

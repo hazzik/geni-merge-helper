@@ -8,7 +8,7 @@ document.querySelectorAll('tr.list_row:not([data-profile-id])').forEach(tr => {
   td.innerHTML = `<p class="strong mbn"><a href="https://www.geni.com/profile/index/${profile_id}">${td.innerHTML}</a></p>`;
 });
 
-document.querySelectorAll('table').forEach(table => {
+document.querySelectorAll('.segmented_table, .sortable_table').forEach(table => {
   const rows = table.querySelectorAll('tr[data-profile-id]');
   if (!rows.length) return;
 
@@ -43,7 +43,7 @@ function createMergeCheckbox(id) {
   const checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
   checkbox.setAttribute('class', 'merge_profile_cbx');
-  checkbox.setAttribute('value', id);
+  checkbox.setAttribute('data-profile-id', id);
   checkbox.addEventListener('click', toggleMergeButton);
   return checkbox;
 }
@@ -51,7 +51,7 @@ function createMergeCheckbox(id) {
 const mergeButton = createMetgeButton();
 
 function toggleMergeButton() {
-  const id = this.getAttribute('value');
+  const id = this.getAttribute('data-profile-id');
   if (this.checked) {
     profilesToMerge.push(id);
   } else {

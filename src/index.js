@@ -8,26 +8,28 @@ document.querySelectorAll('tr.list_row:not([data-profile-id])').forEach(tr => {
   td.innerHTML = `<p class="strong mbn"><a href="https://www.geni.com/profile/index/${profile_id}">${td.innerHTML}</a></p>`;
 });
 
-const table = document.querySelector('tr[data-profile-id]')?.closest('table');
-if (table) {
+document.querySelectorAll('table').forEach(table => {
+  const rows = table.querySelectorAll('tr[data-profile-id]');
+  if (!rows.length) return;
+
   const cell = table.querySelector('tr').insertCell(1);
   cell.outerHTML = '<th />';
-}
 
-document.querySelectorAll('tr[data-profile-id]').forEach(tr => {
-  const id = tr.getAttribute('data-profile-id');
-  tr.insertCell(1).appendChild(createMergeCheckbox(id));
-  const span = tr.querySelector('.name_cell .strong, strong');
-  span?.querySelectorAll('a[onclick]').forEach(a => {
-    a.removeAttribute('onclick');
-    a.setAttribute('href', `https://www.geni.com/profile/index/${id}`);
-  })
+  rows.forEach(tr => {
+    const id = tr.getAttribute('data-profile-id');
+    tr.insertCell(1).appendChild(createMergeCheckbox(id));
+    const span = tr.querySelector('.name_cell .strong, strong');
+    span?.querySelectorAll('a[onclick]').forEach(a => {
+      a.removeAttribute('onclick');
+      a.setAttribute('href', `https://www.geni.com/profile/index/${id}`);
+    })
+  });
 });
 
 function createMetgeButton() {
   const mergeButton = document.createElement('a');
   mergeButton.text = "Merge";
-  mergeButton.setAttribute('class', 'super blue button large');
+  mergeButton.setAttribute('class', 'mvm super blue button');
   mergeButton.setAttribute('disabled', 'disabled');
   mergeButton.addEventListener('click', () => {
     const [head, ...tail] = profilesToMerge;

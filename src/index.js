@@ -43,7 +43,7 @@ function createMergeCheckbox(id) {
   const checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
   checkbox.setAttribute('class', 'merge_profile_cbx');
-  checkbox.setAttribute('data-profile-id', id);
+  checkbox.setAttribute('value', id);
   checkbox.addEventListener('click', toggleMergeButton);
   return checkbox;
 }
@@ -51,7 +51,7 @@ function createMergeCheckbox(id) {
 const mergeButton = createMetgeButton();
 
 function toggleMergeButton() {
-  const id = this.getAttribute('data-profile-id');
+  const id = this.getAttribute('value');
   if (this.checked) {
     profilesToMerge.push(id);
   } else {

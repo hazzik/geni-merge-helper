@@ -1,6 +1,6 @@
 {
   "name": "geni-merge-helper",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A Geni.com merge helper",
   "main": "index.js",
   "type": "module",

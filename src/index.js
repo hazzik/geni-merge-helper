@@ -9,6 +9,20 @@ document.querySelectorAll('tr.list_row:not([data-profile-id])').forEach(tr => {
 });
 
 document.querySelectorAll('.segmented_table, .sortable_table').forEach(table => {
+  table.querySelectorAll('tr:not([data-profile-id])').forEach(tr => {
+    tr.querySelectorAll('.similar_profiles').forEach(div => {
+      const [_, profile_id] = /similar_profiles_link_(\w+)/.exec(div.id);
+      tr.setAttribute('data-profile-id', profile_id);
+    });
+  });
+
+  table.querySelectorAll('tr:not([data-profile-id])').forEach(tr => {
+    tr.querySelectorAll('.privacy-icon-public').forEach(div => {
+      const [_, profile_id] = /shared_icon_(\w+)/.exec(div.id);
+      tr.setAttribute('data-profile-id', profile_id);
+    });
+  });
+
   const rows = table.querySelectorAll('tr[data-profile-id]');
   if (!rows.length) return;
 

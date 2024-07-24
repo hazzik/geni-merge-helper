@@ -33,8 +33,10 @@ document.querySelectorAll('.segmented_table, .sortable_table').forEach(table => 
     const id = tr.getAttribute('data-profile-id');
     tr.insertCell(1).appendChild(createMergeCheckbox(id));
     const span = tr.querySelector('.name_cell .strong, strong');
-    span?.querySelectorAll('a').forEach(a => {
+    span?.querySelectorAll('a[onclick],a[method]').forEach(a => {
       a.removeAttribute('onclick');
+      a.removeAttribute('method');
+      a.removeAttribute('data-method-bound');
       a.setAttribute('href', `https://www.geni.com/profile/index/${id}`);
     });
   });

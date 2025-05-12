@@ -16,7 +16,7 @@
   "author": "",
   "license": "Unlicense",
   "devDependencies": {
-    "chrome-webstore-upload-cli": "^2.0.1",
+    "chrome-webstore-upload-cli": "^3.0.0",
     "copy-webpack-plugin": "^13.0.0",
     "web-ext": "^8.0.0",
     "webpack": "^5.65.0",

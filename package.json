@@ -7,6 +7,7 @@
   "scripts": {
     "build": "webpack --env AMO_EXTENSION_ID=\"$AMO_EXTENSION_ID\"",
     "pack": "web-ext build --source-dir ./dist/",
+    "lint": "web-ext lint --source-dir ./dist/",
     "start:firefox": "web-ext run --source-dir ./dist/",
     "sign": "web-ext sign --channel unlisted --source-dir ./dist/ --api-key $AMO_API_KEY --api-secret $AMO_API_SECRET",
     "generate-update-manifest": "node bin/generate-update-manifest.js $AMO_EXTENSION_ID",
